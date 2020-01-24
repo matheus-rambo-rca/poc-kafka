@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: KafkaPOC
+server:
+  port: 8080
+kakfa:
+  bootstrapAddress: http://localhost:2181
+  replication_factor: 1
+  partitions: 1
