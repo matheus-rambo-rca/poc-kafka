@@ -1,6 +1,7 @@
-package com.br.rca.pockafka.configuration;
+package com.rca.pockafka.configuration;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,8 +26,10 @@ public class TopicConfig {
             --topic <nome_topico>
         */
 
-    @Value("${kafka.bootstrapAddress}")
-    private String bootstrapAddress;
+    //@Value(value = "${kafka.bootstrap-address}")
+    private String  bootstrapAddress  = "http://localhost:2181";
+    private Short   replicationFactor = 1;
+    private Integer partitions        = 1;
 
     private Map<String, Object>  configuration(){
         // o 1 no construtor significa o tamanho inical do hashmap.
@@ -38,6 +41,11 @@ public class TopicConfig {
     @Bean
     public KafkaAdmin kafkaAdmin(){
         return new KafkaAdmin(configuration());
+    }
+
+    @Bean
+    public NewTopic rcaTopic(){
+        return new NewTopic("rcatopico", partitions, replicationFactor);
     }
 
 }

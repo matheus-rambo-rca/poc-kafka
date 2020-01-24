@@ -1,4 +1,4 @@
-package com.br.rca.pockafka;
+package com.rca.pockafka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
