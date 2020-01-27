@@ -11,14 +11,13 @@ public class MessageProducer {
 
     private final Logger LOGGER = LoggerFactory.getLogger(MessageProducer.class);
 
-    private final static String RCA_TOPIC = "rcatopico";
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void sendMessage(String message) {
-        LOGGER.info(String.format(">>>>> Enviando mensagem para o tópico: %s, mensagem: %s", RCA_TOPIC, message));
-        kafkaTemplate.send(RCA_TOPIC, message);
+    public void sendMessage(final String topic, final String message) {
+        LOGGER.info(String.format(">>>>> Enviando mensagem para o tópico: %s, mensagem: %s", topic, message));
+        kafkaTemplate.send(topic, message);
     }
 
 }

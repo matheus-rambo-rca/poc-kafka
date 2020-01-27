@@ -15,13 +15,7 @@ public class SendMessageController {
 
     @PostMapping(value = "/{topic}" ,consumes = "text/plain")
     public void sendMessage(@RequestBody String message, @PathVariable("topic") final String topic){
-        messageProducer.sendMessage(message);
-    }
-
-    @GetMapping
-    @ResponseBody
-    public String work(){
-        return "Rodando....";
+        messageProducer.sendMessage(topic, message);
     }
 
 }
