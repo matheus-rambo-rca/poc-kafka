@@ -13,10 +13,7 @@ import java.util.Map;
 @Configuration
 public class TopicConfig {
 
-    /**
-     Podemos criar tópicos de duas formas, pela linha de comaando
-     e pelo Bean do KafkaAdmin
-
+    /*
         Precisamos ter o kafka em nossa máquina.
      https://www.apache.org/dyn/closer.cgi?path=/kafka/2.4.0/kafka_2.12-2.4.0.tgz
 
@@ -43,9 +40,6 @@ public class TopicConfig {
         return new KafkaAdmin(configuration());
     }
 
-    @Bean
-    public NewTopic rcaTopic(){
-        return new NewTopic("rcatopico", partitions, replicationFactor);
-    }
+
 
 }
