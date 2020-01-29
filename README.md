@@ -8,6 +8,9 @@ Para cada tópico, O cluster do Kafka mantém um registro de logs particionando,
 
 ![image](https://user-images.githubusercontent.com/60265139/73369847-0a149180-4292-11ea-83dd-3fa618f1a71a.png)
 
-Cada partição, é uma sequência ordenada de registros que constantemente sofre alterações(novos registros são publicados). 
+Cada partição, é uma sequência ordenada de registros que constantemente sofre alterações(novos registros são publicados). Para cada registro nas partições, é vinculado um ***id sequencial*** chamado de ***offset*** que identifica um registro único em uma partição.
+
+O *cluster* grava todos os registros, consumidos ou não
+
 	
 
